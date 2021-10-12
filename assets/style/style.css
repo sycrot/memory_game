@@ -1,0 +1,170 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+body {
+    height: 100%;
+    background: hsl(210, 60%, 10%);
+}
+
+.memorygame {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} 
+.memorygame-initcontainer {
+    width: 90%;
+    padding: 5vmax 3vmax;
+    background: hsl(210, 60%, 20%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+}
+
+.mg-container {
+    width: 100%;
+    margin: 0 0 5vmax 0;
+}
+.mg-title-init {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1em;
+}
+.mg-buttons-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2vmax;
+}
+.btn-mg {
+    width: 100%;
+    height: 50px;
+    font-size: 1.2em;
+    border-radius: 20px;
+    margin: 0 1vmax;
+    color: #fff;
+    background: hsl(210, 60%, 40%);
+    border: none;
+}
+.btn-mg:active {
+    background: hsl(210, 60%, 30%);
+    transform: scale(0.97);
+}
+.btn-mg-active {
+    background: hsl(210, 60%, 30%);
+}
+
+.ic-initbutton {
+    width: 100%;
+}
+.ib-buttoninit {
+    width: 100%;
+    height: 50px;
+    background: hsl(210, 60%, 80%);
+    border: none;
+    border-radius: 20px;
+    color: rgb(43, 42, 42);
+    font-size: 1.2em;
+}
+.ib-buttoninit:active {
+    background: hsl(210, 60%, 70%);
+    transform: scale(0.97);
+}
+
+/* GAME BOARD */
+#memorygame-gamecontainer {
+    width: 90%;
+    display: none;
+    flex-wrap: wrap;
+    background: hsl(210, 60%, 20%);
+    padding: 1vmax;
+    border-radius: 20px;
+}
+
+.memory-card {
+    width: calc(25% - 10px);
+    height: 100px;
+    margin: 5px;
+    position: relative;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: 0.3s;
+}
+
+.memory-card:active {
+    transform: scale(0.97);
+}
+
+.memory-card.flip {
+    transform: rotateY(180deg);
+}
+
+#front-face,
+#back-face {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    color: #fff;
+
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    background: hsl(210, 60%, 30%);
+    border-radius: 20px;
+    position: absolute;
+}
+
+#front-face {
+    transform: rotateY(180deg);
+}
+
+/* .memorygame-players {
+    width: 90%;
+    border-radius: 20px;
+    margin-top: 3vmax;
+    background: hsl(210, 60%, 20%);
+    display: flex;
+    padding: 2vmax;
+    justify-content: space-between;
+}
+.gamecontainer-player {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: hsl(210, 60%, 30%);
+    padding: 1vmax;
+    border-radius: 20px;
+    margin: 0 1vmax;
+}
+.player-name {
+    margin-right: 10px;
+    color: #fff;
+    font-size: 1em;
+    font-weight: bold;
+}
+.player-points {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: hsl(210, 60%, 10%);
+    padding: 10px;
+    border-radius: 10px;
+}
+.player-points .points-title {
+    color:hsl(210, 60%, 80%);
+    margin-bottom: 5px;
+}
+.player-points .points {
+    color: #fff;
+} */

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/style/style.css">
+    <script src="https://kit.fontawesome.com/325a90cdfa.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300;400;700&display=swap" rel="stylesheet">
+    <title>Memory Game</title>
+</head>
+<body>
+
+    <div class="memorygame">
+        <div class="memorygame-initcontainer">
+            <div class="mg-container ic-selectplayers">
+                <p class="mg-title-init selectplayers-title">
+                    Number of Players
+                </p>
+                <div class="mg-buttons-container selectplayers-buttons">
+                    <button class="btn-mg sp-btn btn-mg-active" data-value="1">1</button>
+                    <button class="btn-mg sp-btn" data-value="2">2</button>
+                    <button class="btn-mg sp-btn" data-value="3">3</button>
+                    <button class="btn-mg sp-btn" data-value="4">4</button>
+                </div>
+            </div>
+
+            <div class="mg-container ic-grid">
+                <p class="mg-title-init grid-title">Grid Size</p>
+                <div class="mg-buttons-container grid-buttons">
+                    <button class="btn-mg grid-btn btn-mg-active" data-value="4">4x4</button>
+                    <button class="btn-mg grid-btn" data-value="6">6x6</button>
+                    <button class="btn-mg grid-btn"
+                    data-value="8">8x8</button>
+                </div>
+            </div>
+
+            <div class="ic-initbutton">
+                <button class="ib-buttoninit">Start Game</button>
+            </div>
+        </div>
+
+        <div id="memorygame-gamecontainer">
+            
+        </div>
+
+        <!-- <div class="memorygame-players">
+
+        </div> -->
+    </div>
+
+    <script src="assets/js/GameBoardController.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

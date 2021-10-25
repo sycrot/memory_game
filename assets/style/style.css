@@ -140,7 +140,7 @@ body {
     flex-wrap: wrap;
 }
 .gamecontainer-player {
-    width: 48.5%;
+    width: 47.5%;
     display: flex;
     justify-content: center;
     align-items: center;

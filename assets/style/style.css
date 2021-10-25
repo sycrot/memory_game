@@ -53,6 +53,7 @@ body {
     color: #fff;
     background: hsl(210, 60%, 40%);
     border: none;
+    cursor: pointer;
 }
 .btn-mg:active {
     background: hsl(210, 60%, 30%);
@@ -73,6 +74,7 @@ body {
     border-radius: 20px;
     color: rgb(43, 42, 42);
     font-size: 1.2em;
+    cursor: pointer;
 }
 .ib-buttoninit:active {
     background: hsl(210, 60%, 70%);
@@ -82,6 +84,7 @@ body {
 /* GAME BOARD */
 #memorygame-gamecontainer {
     width: 90%;
+    height: 65%;
     display: none;
     flex-wrap: wrap;
     background: hsl(210, 60%, 20%);
@@ -91,7 +94,6 @@ body {
 
 .memory-card {
     width: calc(25% - 10px);
-    height: 100px;
     margin: 5px;
     position: relative;
     cursor: pointer;
@@ -130,21 +132,22 @@ body {
 .memorygame-players {
     width: 90%;
     border-radius: 20px;
-    margin-top: 3vmax;
+    margin-top: 1vmax;
     background: hsl(210, 60%, 20%);
-    display: flex;
-    padding: 2vmax;
-    justify-content: space-between;
+    display: none;
+    padding: 0.5vmax;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 .gamecontainer-player {
-    width: 100%;
+    width: 48.5%;
     display: flex;
     justify-content: center;
     align-items: center;
     background: hsl(210, 60%, 30%);
     padding: 1vmax;
-    border-radius: 20px;
-    margin: 0 1vmax;
+    border-radius: 10px;
+    margin: 0.5vmax;
 }
 .gc-player-active {
     background: #1ab3b3;
@@ -170,4 +173,56 @@ body {
 }
 .player-points .points {
     color: #fff;
+}
+
+.memorygame-winningplayer {
+    width: 90%;
+    height: 210px;
+    border-radius: 20px;
+    background-color: hsl(210, 60%, 30%);
+    display: none;
+    padding: 2vmax;
+    align-items: center;
+    justify-content: center;
+}
+.winnigplayer-content {
+    width: 100%;
+    height: 100%;
+    background-color: hsl(210, 60%, 20%);
+    border-radius: 20px;
+}
+.winningplayer-points {
+    width: 100%;
+    background: hsl(210, 60%, 40%);
+    border-radius: 10px 10px 0 0;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:hsl(0, 0%, 100%);
+    font-size: 1.4em;
+}
+.winningplayer-title {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color:hsl(0, 0%, 100%);
+    font-size: 1.5em;
+}
+
+@media screen and (min-width: 720px) {
+    body {
+        padding: 0 20vmax;
+    }
+
+    .memorygame-players {
+        width: 90%;
+    }
+    .gamecontainer-player {
+        width: 49.2%;
+        margin: 0.2vmax;
+    }
 }

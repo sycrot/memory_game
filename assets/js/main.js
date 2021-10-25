@@ -2,7 +2,7 @@ const initContainer = document.querySelector('.memorygame-initcontainer')
 const spBtn = document.querySelectorAll('.sp-btn')
 const gridBtn = document.querySelectorAll('.grid-btn')
 
-let numberPlayers = 0
+let numberPlayers = 1
 let gridNumber = 0
 
 spBtn.forEach(btn => {
@@ -24,15 +24,14 @@ gridBtn.forEach(btn => {
 const buttonInit = document.querySelector('.ib-buttoninit')
 
 const cardBoard = document.querySelector('#memorygame-gamecontainer')
+const divPlayers = document.querySelector('.memorygame-players')
 
 buttonInit.addEventListener('click', () => {
     initContainer.style.display = 'none'
     cardBoard.style.display = 'flex'
+    divPlayers.style.display = 'flex'
     if (gridNumber == 0) {
         gridNumber = 4
-    }
-    if (numberPlayers == 0) {
-        numberPlayers == 1
     }
     window.gameBoard = new GameBoard(gridNumber, numberPlayers)
 })

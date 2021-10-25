@@ -29,15 +29,12 @@ class GameBoard {
                 </div>
             `
         })
-        
-        const divPlayers = document.querySelector('.memorygame-players')
 
         cardBoard.innerHTML = cardHTML + cardHTML
         
         const cards = document.querySelectorAll('.memory-card')
         let firstCard, secondCard
         let lockCards = false
-        let points = 0
         let players = []
 
         function getPlayers() {
@@ -78,18 +75,19 @@ class GameBoard {
             checkForMatch()
         }
         
-        let player = 0
+        let currentPlayer = 0
+
         function checkForMatch() {
             let isMatch = firstCard.dataset.card === secondCard.dataset.card
 
             if (!isMatch) {
-                if (player >= players.length - 1) {
-                    player = -1
+                if (currentPlayer >= players.length - 1) {
+                    currentPlayer = -1
                 }
-                player+=1
-                playerSelect(player)
+                currentPlayer+=1
+                playerSelect(currentPlayer)
             } else {
-                addPointsPlayer(player)
+                addPointsPlayer(currentPlayer)
             }
         
             !isMatch ? disableCards() : resetCards(isMatch)
@@ -104,10 +102,41 @@ class GameBoard {
             divPlayer[player].classList.add('gc-player-active')
         }
 
+        const memoryCards = cardBoard.querySelectorAll('.memory-card')
         function addPointsPlayer(player) {
             players[player].points += 1
             let pointsPlayer = divPlayer[player].querySelector('.points')
             pointsPlayer.innerHTML = players[player].points
+
+            if (document.querySelectorAll('.memory-card.flip').length >= memoryCards.length) winningPlayer()
+        }
+
+        function winningPlayer() {
+            const divWinningPlayer = document.querySelector('.memorygame-winningplayer')
+            let numPoints = []
+            let winningPlayerContent = ''
+
+            players.map((e, index) => {
+                numPoints.push(e.points)
+            })
+            let highestScore = Math.max.apply(null, numPoints)
+            let winningPlayer = players.filter(e => e.points === highestScore)
+
+            winningPlayer.forEach(e => {
+                winningPlayerContent = `
+                    <div class="winnigplayer-content">
+                        <p class="winningplayer-points">com ${e.points} pontos</p>
+                        <h3 class="winningplayer-title">o Player ${e.id} <br> é o vencedor</h3>
+                    </div>
+                `
+                divWinningPlayer.innerHTML += winningPlayerContent
+            })
+            
+            setInterval(() => {
+                cardBoard.style.display = 'none'
+                divPlayers.style.display = 'none'
+                divWinningPlayer.style.display = 'flex'
+            }, 1500)
         }
         
         function disableCards() {
@@ -132,7 +161,6 @@ class GameBoard {
             if (isMatch) {
                 firstCard.removeEventListener('click', flipCard)
                 secondCard.removeEventListener('click', flipCard)
-                points++
             }
             [firstCard, secondCard, lockCards] = [null, null, false]
         }

@@ -122,15 +122,27 @@ class GameBoard {
             let highestScore = Math.max.apply(null, numPoints)
             let winningPlayer = players.filter(e => e.points === highestScore)
 
-            winningPlayer.forEach(e => {
+            if (winningPlayer.length > 1) {
+                let players = []
+                winningPlayer.forEach(e => players.push(e.id))
                 winningPlayerContent = `
                     <div class="winnigplayer-content">
-                        <p class="winningplayer-points">com ${e.points} pontos</p>
-                        <h3 class="winningplayer-title">o Player ${e.id} <br> é o vencedor</h3>
+                        <p class="winningplayer-points">com ${winningPlayer[0].points} pontos</p>
+                        <h3 class="winningplayer-title">o Player ${players.join(', e Player ')} <br> empataram!</h3>
                     </div>
                 `
                 divWinningPlayer.innerHTML += winningPlayerContent
-            })
+            } else {
+                winningPlayer.forEach(e => {
+                    winningPlayerContent = `
+                        <div class="winnigplayer-content">
+                            <p class="winningplayer-points">com ${e.points} pontos</p>
+                            <h3 class="winningplayer-title">o Player ${e.id} <br> é o vencedor!</h3>
+                        </div>
+                    `
+                    divWinningPlayer.innerHTML += winningPlayerContent
+                })
+            }
             
             setInterval(() => {
                 cardBoard.style.display = 'none'

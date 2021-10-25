@@ -34,5 +34,5 @@ buttonInit.addEventListener('click', () => {
     if (numberPlayers == 0) {
         numberPlayers == 1
     }
-    window.gameBoard = new GameBoard(gridNumber)
+    window.gameBoard = new GameBoard(gridNumber, numberPlayers)
 })

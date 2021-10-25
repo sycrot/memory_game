@@ -1,7 +1,8 @@
 class GameBoard {
-    constructor(gridNumber) {
+    constructor(gridNumber, numberPlayers) {
         this.init()
         gridNumber
+        numberPlayers
     }
 
     init() {
@@ -29,7 +30,7 @@ class GameBoard {
             `
         })
         
-        /* const divPlayers = document.querySelector('.memorygame-players') */
+        const divPlayers = document.querySelector('.memorygame-players')
 
         cardBoard.innerHTML = cardHTML + cardHTML
         
@@ -37,26 +38,29 @@ class GameBoard {
         let firstCard, secondCard
         let lockCards = false
         let points = 0
+        let players = []
 
-        /* function getPlayers() {
+        function getPlayers() {
             let divPlayer = '' 
-            let numPlayers = 3
             
-            for (let i=0; i<=numPlayers; i++) {
+            for (let i=0; i<numberPlayers; i++) {
                 divPlayer += `
-                <div class="gamecontainer-player">
-                    <p class="player-name">Player ${i}</p>
-                    <div class="player-points">
-                        <p class="points-title">points</p>
-                        <p class="points">3</p>
+                    <div class="gamecontainer-player">
+                        <p class="player-name">Player ${i}</p>
+                        <div class="player-points">
+                            <p class="points-title">points</p>
+                            <p class="points">0</p>
+                        </div>
                     </div>
-                </div>
-            `
+                `
+                players.push({
+                    id: i,
+                    points: 0
+                })
             }
-
             divPlayers.innerHTML = divPlayer
         }
-        getPlayers() */
+        getPlayers()
         
         function flipCard() {
             if (lockCards) return false
@@ -74,11 +78,36 @@ class GameBoard {
             checkForMatch()
         }
         
+        let player = 0
         function checkForMatch() {
             let isMatch = firstCard.dataset.card === secondCard.dataset.card
+
+            if (!isMatch) {
+                if (player >= players.length - 1) {
+                    player = -1
+                }
+                player+=1
+                playerSelect(player)
+            } else {
+                addPointsPlayer(player)
+            }
         
             !isMatch ? disableCards() : resetCards(isMatch)
-            console.log(points)
+        }
+
+        let divPlayer = document.querySelectorAll('.gamecontainer-player')
+        divPlayer[0].classList.add('gc-player-active')
+        function playerSelect(player) {
+            divPlayer.forEach(e => {
+                e.classList.remove('gc-player-active')
+            })
+            divPlayer[player].classList.add('gc-player-active')
+        }
+
+        function addPointsPlayer(player) {
+            players[player].points += 1
+            let pointsPlayer = divPlayer[player].querySelector('.points')
+            pointsPlayer.innerHTML = players[player].points
         }
         
         function disableCards() {

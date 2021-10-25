@@ -127,7 +127,7 @@ body {
     transform: rotateY(180deg);
 }
 
-/* .memorygame-players {
+.memorygame-players {
     width: 90%;
     border-radius: 20px;
     margin-top: 3vmax;
@@ -145,6 +145,9 @@ body {
     padding: 1vmax;
     border-radius: 20px;
     margin: 0 1vmax;
+}
+.gc-player-active {
+    background: #1ab3b3;
 }
 .player-name {
     margin-right: 10px;
@@ -167,4 +170,4 @@ body {
 }
 .player-points .points {
     color: #fff;
-} */
+}

@@ -114,19 +114,23 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 50px;
+    font-size: 2em;
     color: #fff;
 
     width: 100%;
     height: 100%;
-    padding: 20px;
     background: hsl(210, 60%, 30%);
     border-radius: 20px;
     position: absolute;
+    box-sizing: border-box;
 }
 
 #front-face {
     transform: rotateY(180deg);
+}
+
+#front-face .active {
+    color:hsl(210, 60%, 70%);
 }
 
 .memorygame-players {
@@ -177,19 +181,21 @@ body {
 
 .memorygame-winningplayer {
     width: 90%;
-    height: 210px;
+    height: 310px;
     border-radius: 20px;
     background-color: hsl(210, 60%, 30%);
     display: none;
     padding: 2vmax;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
 }
 .winnigplayer-content {
     width: 100%;
     height: 100%;
     background-color: hsl(210, 60%, 20%);
     border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .winningplayer-points {
     width: 100%;
@@ -204,13 +210,18 @@ body {
 }
 .winningplayer-title {
     width: 100%;
-    height: 60%;
+    height: 165px;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     color:hsl(0, 0%, 100%);
     font-size: 1.5em;
+    background: hsl(210, 60%, 10%);
+}
+
+.winninplayer-actions .winninplayer-btn {
+    border-radius: 0 0 10px 10px;
 }
 
 @media screen and (min-width: 720px) {
